@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_app/screens/show_counter.dart';
 
 import '../models/counter_model.dart';
+import '../route_folder/routes_name.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -16,10 +16,11 @@ class HomePage extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: ((_) => ChangeNotifierProvider.value(
-                      value: context.read<Counter>(),
-                      child: const ShowCounter()))));
+                Navigator.pushNamed(context, RouteName.showCounter);
+                // Navigator.of(context).push(MaterialPageRoute(
+                //     builder: ((_) => ChangeNotifierProvider.value(
+                //       value: context.read<Counter>(),
+                //       child: const ShowCounter()))));
               },
               child: const Text(
                 'Show Me Counter',
